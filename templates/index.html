@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-dark text-white">
+
+<div class="container py-5 text-center">
+
+    <h1 class="text-info">🛡️ Attack Dashboard</h1>
+
+    <a href="/" class="btn btn-light mt-3 mb-3">رجوع</a>
+
+    <div class="table-responsive">
+
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>IP Address</th>
+                    <th>Port</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for attack in attacks %}
+                <tr>
+                    <td>{{ attack.time }}</td>
+                    <td class="text-danger">{{ attack.ip }}</td>
+                    <td>{{ attack.port }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+<script>
+setInterval(() => location.reload(), 5000);
+</script>
+
+</body>
+</html>
